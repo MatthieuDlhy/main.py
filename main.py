@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import requests
 
 app = Flask(__name__)
 
@@ -25,3 +26,13 @@ def printMsg():
     app.logger.info(loginfo)
 
     return render_template('log.html', loginfo = "This is my log")
+
+@app.route('/reqGoogle', methods=['GET'])
+def reqGA():
+    req = requests.get("https://www.google.com/")
+    return req.cookies.get_dict()
+
+@app.route('/reqGA', methods=['GET'])
+def myreqGA():
+    req = requests.get('https://analytics.google.com/analytics/web/#/p345032521/reports/intelligenthome')
+    return req.text
