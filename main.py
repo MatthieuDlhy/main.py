@@ -17,23 +17,6 @@ src="https://www.googletagmanager.com/gtag/js?id=UA-250999446-1"></script>
  """
  return prefix_google + "Hello World"
 
-# @app.route('/')
-# def home():
-#     return render_template('home.html')
-
-# @app.route('/logger/')
-# def logger():
-#     return render_template('about.html')
-
-# import logging
-
-# @app.route('/logger', methods=["GET"])
-# def printMsg():
-#     app.logger.warning('testing warning log')
-#     app.logger.error('testing error log')
-#     app.logger.info('testing info log')
-#     return "Check your console"
-
 @app.route('/logger', methods=['GET'])
 def printMsg():
     loginfo = "This is my log"
@@ -42,8 +25,3 @@ def printMsg():
     app.logger.info(loginfo)
 
     return render_template('log.html', loginfo = "This is my log")
-
-# import sys
-
-# print('This is error output', file=sys.stderr)
-# print('This is standard output', file=sys.stdout)
