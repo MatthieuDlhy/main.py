@@ -28,7 +28,7 @@ def printMsg():
     return render_template('log.html', loginfo = "This is my log")
 
 @app.route('/reqGoogle', methods=['GET'])
-def reqGA():
+def reqGoogle():
     req = requests.get("https://www.google.com/")
     return req.cookies.get_dict()
 
