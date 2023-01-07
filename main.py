@@ -39,35 +39,6 @@ def req_ga():
     req = requests.get('https://analytics.google.com/analytics/web/#/p345032521/reports/intelligenthome')
     return req.text
 
-# @app.route('/trends', methods=['GET'])
-# def trends():
-#     # Set the time period (in this case, the past 90 days)
-#     start_date = '{:%Y-%m-%d}'.format(datetime.datetime.now() - datetime.timedelta(days=90))
-#     end_date = '{:%Y-%m-%d}'.format(datetime.datetime.now())
-
-#     # Set the queries you want to compare
-#     queries = ['Ryan Air', 'Wizzair']
-
-#     # Create the TrendReq object
-#     pytrends = TrendReq()
-
-#     # Set the timeframe for the data
-#     pytrends.set_timeframe(start_date, end_date)
-
-#     # Get the search interest data for the queries
-#     interest_over_time_df = pytrends.interest_over_time(queries)
-
-#     # Plot the search interest data
-#     interest_over_time_df.plot()
-
-#     # Save the plot as a PNG file
-#     fig = interest_over_time_df.plot().get_figure()
-#     fig.savefig('trends.png')
-
-#     # Return the plot as a PNG image
-#     return render_template('trends.html', image_name='trends.png')
-
-
 @app.route('/pytrends')
 def googletrendchart():
     pytrends = TrendReq()
@@ -123,8 +94,3 @@ def googletrendchart():
         """
 
     return prefix_chartjs
-
-# # if __name__ == '__main__':
-# #     app.run(host="localhost", port=8000, debug=True)
-
-
